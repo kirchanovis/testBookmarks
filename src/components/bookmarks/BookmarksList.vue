@@ -1,15 +1,15 @@
 <template>
-
+  <div>BookmarksList</div>
 </template>
 
 <script>
 export default {
-  name: 'addBookmarks',
+  name: 'BookmarksList',
   props: {
     msg: String
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss"
 </style>
