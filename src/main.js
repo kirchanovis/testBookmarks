@@ -3,13 +3,12 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-import Vuelidate from 'vuelidate'
+import Vuelidate from 'vuelidate';
+import store from './store';
 
-Vue.use(Vuelidate)
+Vue.use(Vuelidate);
 
 Vue.config.productionTip = false;
-
-import store from './store/index.js';
 
 /* eslint-disable no-new */
 new Vue({

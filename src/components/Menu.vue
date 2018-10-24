@@ -5,13 +5,13 @@
     </div>
     <div class="menu__item">
       <router-link class="menu__link " :to="'/bookmarks'">Закладки</router-link>
-    </div>    
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Menu'
+  name: 'Menu',
 };
 </script>
 

@@ -1,11 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import bookmarks from './modules/bookmarks'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import bookmarks from './modules/bookmarks';
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    bookmarks
-  }
-})
+    bookmarks,
+  },
+});

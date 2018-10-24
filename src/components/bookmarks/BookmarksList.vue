@@ -17,7 +17,7 @@
               <img class="action__img" @click="editLink(link.id)" src="/static/assets/edit.svg" title="Редактировать" alt="редактировать">
           </div>
           <div class="action__item">
-            <img class="action__img" @click="copyLink(link.id)" src="/static/assets/copy.svg" title="Копировать ссылку" alt="Копировать ссылку">
+            <img class="action__img" @click="copyLink(link.url)" src="/static/assets/copy.svg" title="Копировать ссылку" alt="Копировать ссылку">
           </div>
         </div>
       </div>
@@ -32,27 +32,28 @@ export default {
   props: {
     links: {
       type: Array,
-      required: false
-    }
+      required: false,
+    },
   },
   methods: {
-    baseurl (url) {
-      const pathArray = url.split( '/' );
+    baseurl(url) {
+      const pathArray = url.split('/');
       const protocol = pathArray[0];
       const host = pathArray[2];
       return protocol + '//' + host;
     },
-    editLink (id) {
-      this.$emit('editLink', id)
+    editLink(id) {
+      this.$emit('editLink', id);
     },
-    deleteLink (id) {
-      this.$emit('deleteLink', id)
+    deleteLink(id) {
+      this.$emit('deleteLink', id);
     },
-    copyLink (id) {
-      this.$emit('copyLink', id)
+    copyLink(url) {
+      this.$emit('copyLink', url);
     },
-  }
-}
+  },
+};
+
 </script>
 
 <style lang="scss">
@@ -71,7 +72,7 @@ $textColorWebsiteTitle: #000;
   border-radius: 5px;
   &__item{
     text-align: left;
-    margin: 15px 0; 
+    margin: 15px 0;
   }
 }
 .website{
@@ -87,6 +88,7 @@ $textColorWebsiteTitle: #000;
     text-decoration: none;
     color: $textColorWebsiteTitle;
     font-size: 14px;
+    padding: 5px;
   }
   &__domain{
     font-size: 13px;

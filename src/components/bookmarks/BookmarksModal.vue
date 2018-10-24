@@ -3,6 +3,9 @@
     <div class="modal-overlay"></div>
     <div class="modal-container">
         <div class="modal">
+            <div class="modal__close">
+                <img class="action__img" @click="closeModal()" src="/static/assets/delete.svg">
+            </div>
             <form @submit="updateLinkSubmit">
                 <div class="modal__body">
                     <div class="modal__title">Редактировать закладку</div>
@@ -52,6 +55,10 @@ methods:{
     updateLinkSubmit (e) {
       this.$emit('submit');
       e.preventDefault()
+    },
+    closeModal () {
+      this.$emit('closeModal');
+      console.log(1);
     }
   }
 }
@@ -117,6 +124,7 @@ $bgColorForm: #fff;
     display: block;
     border-radius: 5px;
     visibility: hidden;
+    position: relative;
     &__body {
         display: block;
         padding: 4rem 3rem;
@@ -125,6 +133,12 @@ $bgColorForm: #fff;
         display: block;
         padding: 0 2rem 1rem;
         text-align: right;
+    }
+    &__close{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 16px;
     }
 }
 

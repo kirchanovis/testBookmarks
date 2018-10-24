@@ -1,62 +1,62 @@
-import bookmarks from '../../api/bookmarks'
-import {size} from 'lodash'
+import bookmarks from '../../api/bookmarks';
+import { size, findIndex } from 'lodash';
 
 // initial state
 // shape: [{ id, quantity }]
 const state = {
   links: [],
-}
+};
 
 // getters
 const getters = {
   viewLinks: (state) => {
-
-    return state.links.map( (link) => {
-      return {...link, icon: `${link.url}/favicon.ico`}
-    })
+    return state.links.map((link) => {
+      return { ...link, icon: `${link.url}/favicon.ico` };
+    });
   },
-}
+};
 
 // actions
 const actions = {
-  getLinks({commit}) {
-    bookmarks.getBookmarks(links => {
-      commit('SET_LINKS', links)
-    })
+  getLinks({ commit }) {
+    bookmarks.getBookmarks((links) => {
+      commit('SET_LINKS', links);
+    });
   },
-  addLink({commit}, link){
-      commit('ADD_LINK', link)
+  addLink({ commit }, link) {
+    commit('ADD_LINK', link);
   },
-  deleteLink({commit}, index){
-      commit('DELETE_LINK', index)
+  deleteLink({ commit }, index) {
+    commit('DELETE_LINK', index);
   },
-  updateLink({commit}, link){
-      commit('UPDATE_LINK', link)
+  updateLink({ commit }, link) {
+    commit('UPDATE_LINK', link);
   },
-}
+};
 
 // mutations
 const mutations = {
   SET_LINKS(state, links) {
-    state.links = links
+    state.links = links;
   },
   ADD_LINK(state, link) {
-    const nextId  = size(state.links)
-    state.links.push({...link, id: nextId})
+    const nextId = size(state.links) + 1;
+    state.links.push({ ...link, id: nextId });
   },
-  UPDATE_LINK(state, link){
-    state.links.splice(link.id, 1)
-    state.links.push(link);
+  UPDATE_LINK(state, link) {
+    const index = findIndex(state.links, ['id', link.id]);
+    state.links.splice(index, 1, link);
   },
-  DELETE_LINK(state, index){
-      state.links.splice(index, 1)
-  }
-}
+  DELETE_LINK(state, id) {
+    const index = findIndex(state.links, ['id', id]);
+    state.links.splice(index, 1);
+  },
+};
 
 export default {
   namespaced: true,
   state,
   getters,
   actions,
-  mutations
-}
+  mutations,
+};

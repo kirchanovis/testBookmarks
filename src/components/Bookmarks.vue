@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BookmarksModal :show="showModal" :form="editLink" :titleErrors="updateTitleErrors" :urlErrors="updateUrlErrors" @submit="submitUpdateLink"></BookmarksModal>
+    <BookmarksModal :show="showModal" :form="editLink" :titleErrors="updateTitleErrors" :urlErrors="updateUrlErrors" @submit="submitUpdateLink" @closeModal="closeModal"></BookmarksModal>
     <BookmarksAdd :form="addLink" :titleErrors="titleErrors" :urlErrors="urlErrors" @submit="submitNewLink"></BookmarksAdd>
     <BookmarksList :links="links" @editLink="editLinkClick" @deleteLink="deleteLink" @copyLink="copyLink"></BookmarksList>
   </div>
@@ -89,7 +89,6 @@ export default {
   },
   methods: {
     editLinkClick(id) {
-      console.log('edit '+ id);
       const index = findIndex(this.links, ['id', id]);
       const link = this.links[index];
       this.editLink.title = link.title
@@ -97,11 +96,21 @@ export default {
       this.editLink.id = link.id
       this.showModal = true;
     },
-    copyLink(id) {
-      console.log('copy '+ id);
+    copyLink(url) {
+      this.copyTextToClipboard(url)
     },
     deleteLink(id) {
-      console.log('delete '+ id);
+      this.$store.dispatch('bookmarks/deleteLink', id)
+    },
+    closeModal(){
+      this.showModal = false;
+    },
+    copyTextToClipboard(text) {
+      navigator.clipboard.writeText(text).then(function() {
+        
+      }, function(err) {
+        
+      });
     },
     submitNewLink() {
       this.$v.addLink.$touch()
