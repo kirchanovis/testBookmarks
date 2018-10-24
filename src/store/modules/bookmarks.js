@@ -1,4 +1,5 @@
 import bookmarks from '../../api/bookmarks'
+import {size} from 'lodash'
 
 // initial state
 // shape: [{ id, quantity }]
@@ -9,6 +10,7 @@ const state = {
 // getters
 const getters = {
   viewLinks: (state) => {
+
     return state.links.map( (link) => {
       return {...link, icon: `${link.url}/favicon.ico`}
     })
@@ -28,8 +30,8 @@ const actions = {
   deleteLink({commit}, index){
       commit('DELETE_LINK', index)
   },
-  updateLink({commit}, obj){
-      commit('UPDATE_LINK', {user : obj.link, index: obj.index})
+  updateLink({commit}, link){
+      commit('UPDATE_LINK', link)
   },
 }
 
@@ -38,14 +40,15 @@ const mutations = {
   SET_LINKS(state, links) {
     state.links = links
   },
-  ADD_USER(state, link) {
-    state.links.push(link)
+  ADD_LINK(state, link) {
+    const nextId  = size(state.links)
+    state.links.push({...link, id: nextId})
   },
-  UPDATE_USER(state, {link, index}){
-      state.links.splice(index, 1)
-      state.links.push(link);
+  UPDATE_LINK(state, link){
+    state.links.splice(link.id, 1)
+    state.links.push(link);
   },
-  DELETE_USER(state, index){
+  DELETE_LINK(state, index){
       state.links.splice(index, 1)
   }
 }

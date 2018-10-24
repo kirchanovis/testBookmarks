@@ -1,22 +1,17 @@
 <template>
   <div class="menu" >
-    <a href="/" class="menu__link menu__link_select" >
-      Главная
-    </a>
-    <a href="/" class="menu__link" >
-      Закладки
-    </a>
+    <div class="menu__item">
+      <router-link class="menu__link menu__link_select" :to="'/'">Главная</router-link>
+    </div>
+    <div class="menu__item">
+      <router-link class="menu__link " :to="'/bookmarks'">Закладки</router-link>
+    </div>    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Menu',
-  data() {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-    };
-  },
+  name: 'Menu'
 };
 </script>
 
@@ -24,14 +19,22 @@ export default {
 $colorLink:#3367d6;
 $colorText:#5a5a5a;
 .menu {
-  padding-top: 8px;
+  padding: 0 15px;
   user-select: none;
   text-align: left;
-  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
   font-size: 81.25%;
+  &__item{
+    padding: 10px 0;
+  }
   &__link{
     color: $colorText;
     text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    height: 100%;
+    &_active{
+      color: $colorLink;
+    }
     &:hover{
       color:$colorLink;
     }

@@ -22,13 +22,13 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
 .app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
   display: flex;
   &__menu{
-    flex: 0 0 100px;  
+    flex: 0 0 100px;
   }
   &__content{
     flex:1;

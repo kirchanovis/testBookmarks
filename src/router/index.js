@@ -24,4 +24,6 @@ export default new Router({
       component: Page404
     }
   ],
+  linkActiveClass: "menu__link_light-text ",
+  linkExactActiveClass: "menu__link_active",
 });

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    Home
+  <div class="centered-message">
+    Пустая страница
   </div>
 </template>
 
@@ -18,19 +18,14 @@ export default {
 </script>
 
 <style lang="scss">
-$cl:#42b983;
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color:$cl;
+.centered-message{
+  align-items: center;
+  color: #6e6e6e;
+  display: flex;
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  height: 100%;
+  justify-content: center;
 }
 </style>
