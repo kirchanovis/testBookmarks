@@ -40,7 +40,7 @@ export default {
       const pathArray = url.split('/');
       const protocol = pathArray[0];
       const host = pathArray[2];
-      return protocol + '//' + host;
+      return `${protocol}//${host}`;
     },
     editLink(id) {
       this.$emit('editLink', id);

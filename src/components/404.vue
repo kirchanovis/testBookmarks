@@ -6,9 +6,9 @@
 export default {
   name: 'Page404',
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+};
 </script>
 
 <style scoped>

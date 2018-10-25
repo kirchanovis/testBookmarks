@@ -36,32 +36,31 @@ export default {
   props: {
     show: {
       type: Boolean,
-      required: true
+      required: true,
     },
     form: {
       type: Object,
-      required: false
+      required: false,
     },
     titleErrors: {
-      type: Array ,
-      required: false
+      type: Array,
+      required: false,
     },
     urlErrors: {
       type: Array,
-      required: false
+      required: false,
     },
   },
-methods:{
-    updateLinkSubmit (e) {
+  methods: {
+    updateLinkSubmit(e) {
       this.$emit('submit');
-      e.preventDefault()
+      e.preventDefault();
     },
-    closeModal () {
+    closeModal() {
       this.$emit('closeModal');
-      console.log(1);
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -147,7 +146,7 @@ $bgColorForm: #fff;
   position: relative;
   margin-bottom: 30px;
   text-align: left;
-  &__text{ 
+  &__text{
     color: #333;
     font-size: 14px;
     padding: 10px 10px 10px 0;

@@ -16,14 +16,14 @@ export default new Router({
     {
       path: '/bookmarks',
       name: 'Bookmarks',
-      component: Bookmarks
+      component: Bookmarks,
     },
     {
       path: '*',
       name: '404',
-      component: Page404
-    }
+      component: Page404,
+    },
   ],
-  linkActiveClass: "menu__link_light-text ",
-  linkExactActiveClass: "menu__link_active",
+  linkActiveClass: 'menu__link_light-text',
+  linkExactActiveClass: 'menu__link_active',
 });

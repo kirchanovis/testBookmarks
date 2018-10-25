@@ -25,24 +25,24 @@ export default {
   props: {
     form: {
       type: Object,
-      required: false
+      required: false,
     },
     titleErrors: {
-      type: Array ,
-      required: false
+      type: Array,
+      required: false,
     },
     urlErrors: {
       type: Array,
-      required: false
-    }
+      required: false,
+    },
   },
-  methods:{
-    addLinkSubmit (e) {
+  methods: {
+    addLinkSubmit(e) {
       this.$emit('submit');
-      e.preventDefault()
-    }
-  }
-}
+      e.preventDefault();
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -80,7 +80,7 @@ $bgColorForm: #fff;
   position: relative;
   margin-bottom: 30px;
   text-align: left;
-  &__text{ 
+  &__text{
     color: #333;
     font-size: 14px;
     padding: 10px 10px 10px 0;

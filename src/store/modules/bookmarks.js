@@ -9,11 +9,12 @@ const state = {
 
 // getters
 const getters = {
-  viewLinks: (state) => {
-    return state.links.map((link) => {
-      return { ...link, icon: `${link.url}/favicon.ico` };
-    });
-  },
+  viewLinks: state => (
+    state.links.map(link => (
+      { ...link, icon: `${link.url}/favicon.ico` }
+    ),
+    )
+  ),
 };
 
 // actions
